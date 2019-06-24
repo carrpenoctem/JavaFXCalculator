@@ -47,9 +47,9 @@
                               <Button fx:id="piBut" mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="π" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
-                        <VBox layoutX="290.0" layoutY="31.0" prefHeight="211.0" prefWidth="81.0">
+                        <VBox fx:id="simpleVbox" layoutX="290.0" layoutY="31.0" prefHeight="211.0" prefWidth="81.0">
                            <children>
-                              <Button fx:id="addBut" mnemonicParsing="false" onAction="#addNumber" prefHeight="68.0" prefWidth="81.0" text="+" />
+                              <Button fx:id="addBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="+" />
                               <Button fx:id="subBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="-" />
                               <Button fx:id="multiBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="*" />
                               <Button fx:id="divBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="/" />
@@ -90,7 +90,7 @@
                               <Button fx:id="piBut1" mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="π" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
-                        <VBox layoutX="290.0" layoutY="31.0" prefHeight="211.0" prefWidth="81.0">
+                        <VBox fx:id="advancedVbox" layoutX="290.0" layoutY="31.0" prefHeight="211.0" prefWidth="81.0">
                            <children>
                               <Button fx:id="sqrBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="Square root" />
                               <Button fx:id="rootBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="x root" />
@@ -133,7 +133,7 @@
                               <Button fx:id="piBut2" mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="π" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
-                        <VBox layoutX="290.0" layoutY="31.0" prefHeight="211.0" prefWidth="81.0">
+                        <VBox fx:id="nerdVbox" layoutX="290.0" layoutY="31.0" prefHeight="211.0" prefWidth="81.0">
                            <children>
                               <Button fx:id="sinBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="Sin" />
                               <Button fx:id="cosBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="Cos" />
@@ -177,7 +177,7 @@
           </tabs>
       </TabPane>
       <TextField fx:id="inputField" alignment="center_right" layoutX="26.0" layoutY="22.0" prefHeight="57.0" prefWidth="239.0" />
-      <Button fx:id="clearBut" layoutX="337.0" layoutY="20.0" mnemonicParsing="false" onAction="#clearInput" prefHeight="57.0" prefWidth="44.0" text="Clear" />
-      <Button fx:id="calculateBut" onAction="#countNumber" layoutX="281.0" layoutY="20.0" mnemonicParsing="false" onAction="#clearInput" prefHeight="57.0" prefWidth="44.0" text="=" />
+      <Button fx:id="clearBut" layoutX="337.0" layoutY="20.0" mnemonicParsing="false" onAction="#clearInput" prefHeight="57.0" prefWidth="44.0" text="C" />
+      <Button fx:id="calculateBut" layoutX="281.0" layoutY="20.0" mnemonicParsing="false" onAction="#countNumber" prefHeight="57.0" prefWidth="44.0" text="=" />
    </children>
 </AnchorPane>
