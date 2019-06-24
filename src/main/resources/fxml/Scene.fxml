@@ -36,7 +36,7 @@
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="4" GridPane.rowIndex="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="7" GridPane.rowIndex="2" />
-                              <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="," GridPane.rowIndex="3" />
+                              <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="." GridPane.rowIndex="3" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="2" GridPane.columnIndex="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -49,7 +49,7 @@
                         </GridPane>
                         <VBox layoutX="290.0" layoutY="31.0" prefHeight="211.0" prefWidth="81.0">
                            <children>
-                              <Button fx:id="addBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="+" />
+                              <Button fx:id="addBut" mnemonicParsing="false" onAction="#addNumber" prefHeight="68.0" prefWidth="81.0" text="+" />
                               <Button fx:id="subBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="-" />
                               <Button fx:id="multiBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="*" />
                               <Button fx:id="divBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="/" />
@@ -79,7 +79,7 @@
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="4" GridPane.rowIndex="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="7" GridPane.rowIndex="2" />
-                              <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="," GridPane.rowIndex="3" />
+                              <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="." GridPane.rowIndex="3" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="2" GridPane.columnIndex="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -122,7 +122,7 @@
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="4" GridPane.rowIndex="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="7" GridPane.rowIndex="2" />
-                              <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="," GridPane.rowIndex="3" />
+                              <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="." GridPane.rowIndex="3" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="2" GridPane.columnIndex="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Button mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -176,7 +176,8 @@
               </Tab>
           </tabs>
       </TabPane>
-      <TextField id="inputField" alignment="center_right" editable="false" layoutX="28.0" layoutY="22.0" prefHeight="57.0" prefWidth="237.0" />
-      <Button fx:id="clearBut" layoutX="288.0" layoutY="20.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="81.0" text="Clear" />
+      <TextField fx:id="inputField" alignment="center_right" layoutX="26.0" layoutY="22.0" prefHeight="57.0" prefWidth="239.0" />
+      <Button fx:id="clearBut" layoutX="337.0" layoutY="20.0" mnemonicParsing="false" onAction="#clearInput" prefHeight="57.0" prefWidth="44.0" text="Clear" />
+      <Button fx:id="calculateBut" onAction="#countNumber" layoutX="281.0" layoutY="20.0" mnemonicParsing="false" onAction="#clearInput" prefHeight="57.0" prefWidth="44.0" text="=" />
    </children>
 </AnchorPane>
