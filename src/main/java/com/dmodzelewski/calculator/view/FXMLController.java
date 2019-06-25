@@ -136,8 +136,87 @@ public class FXMLController implements Initializable {
         }
 
     }
-    // method for setting value for our inputField
 
+    // for calculating sin
+    @FXML
+    private void countSin() {
+        if (!inputField.getText().isEmpty() && isResult == false) {
+            double result = Double.parseDouble(inputField.getText());
+            double sin = Math.sin(Math.toRadians(result));
+            inputField.setText(sin + "");
+            isResult = true;
+        }
+    }
+
+    // for calculating cos
+    @FXML
+    private void countCos() {
+        if (!inputField.getText().isEmpty() && isResult == false) {
+            double result = Double.parseDouble(inputField.getText());
+            double cos = Math.cos(Math.toRadians(result));
+            inputField.setText(cos + "");
+            isResult = true;
+        }
+    }
+
+    // for calculating tg
+    @FXML
+    private void countTg() {
+        if (!inputField.getText().isEmpty() && isResult == false) {
+            double result = Double.parseDouble(inputField.getText());
+            double tan = Math.tan(Math.toRadians(result));
+            inputField.setText(tan + "");
+            isResult = true;
+        }
+    }
+
+    // for calculating ctg
+    @FXML
+    private void countCtg() {
+        if (!inputField.getText().isEmpty() && isResult == false) {
+            double result = Double.parseDouble(inputField.getText());
+            double ctg = 1 / Math.tan(Math.toRadians(result));
+            inputField.setText(ctg + "");
+            isResult = true;
+        }
+    }
+
+    // for calculating factorial
+    @FXML
+    private void countFact() {
+        if (!inputField.getText().isEmpty() && isResult == false) {
+            double input = Double.parseDouble(inputField.getText());
+            // check if input is integer
+            if (input == (int) input) {
+                for (int i = (int) input - 1; i > 0; i--) {
+                    input = input * i;
+                }
+                inputField.setText(input + "");
+            } else {
+                inputField.setText("NOT INTEGER");
+                calculateBut.setStyle("-fx-background-color:RED");
+            }
+            isResult = true;
+        }
+    }
+
+    // for calculating square root
+    @FXML
+    private void countSqrt() {
+        double result = Math.sqrt(firstNumber);
+        inputField.setText(result + "");
+        isResult = true;
+    }
+
+    // for calculating square
+    @FXML
+    private void countPow() {
+        double result = Math.pow(firstNumber,  2);
+        inputField.setText(result + "");
+        isResult = true;
+    }
+
+    // method for setting value for our inputField
     private void setInputField(Button b) {
 
         if (".".equals(b.getText()) && inputField.getText().contains(".")) {
@@ -156,13 +235,21 @@ public class FXMLController implements Initializable {
     // method preparing our first number
     // the type of operation will be based on which button is disabled
     private void prepareFirstNumber(Button b) {
+
         if (!inputField.getText().isEmpty()) {
             firstNumber = Double.parseDouble(inputField.getText());
             inputField.clear();
-            for (Button but : actionButtons) {
-                but.setDisable(false);
+            // checking if it's one of operations that don't require a second var
+            if ("sqrBut".equals(b.getId())) {
+                countSqrt();
+            } else if ("powBut".equals(b.getId())) {
+                countPow();
+            } else {
+                for (Button but : actionButtons) {
+                    but.setDisable(false);
+                }
+                b.setDisable(true);
             }
-            b.setDisable(true);
         }
     }
 
@@ -188,6 +275,12 @@ public class FXMLController implements Initializable {
                     classLogger.log(Level.SEVERE, "divided by 0");
                 }
                 break;
+            case "rootBut":
+                resultNumber = Math.pow(firstNumber, 1 / secondNumber);
+                break;
+            case "expBut":
+                resultNumber = Math.pow(firstNumber, secondNumber);
+                break;
         }
         if (buttonId.equals("divBut") && secondNumber == 0) {
             inputField.setText("DIVISION BY ZERO");
@@ -195,8 +288,7 @@ public class FXMLController implements Initializable {
         } else {
             inputField.setText(resultNumber + "");
             calculateBut.setStyle(defaultStyle);
-            isResult = true;
         }
-
+        isResult = true;
     }
 }

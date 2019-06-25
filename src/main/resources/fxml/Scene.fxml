@@ -135,11 +135,11 @@
                         </GridPane>
                         <VBox fx:id="nerdVbox" layoutX="290.0" layoutY="31.0" prefHeight="211.0" prefWidth="81.0">
                            <children>
-                              <Button fx:id="sinBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="Sin" />
-                              <Button fx:id="cosBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="Cos" />
-                              <Button fx:id="tgBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="Tg" />
-                              <Button fx:id="ctgBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="Ctg" />
-                              <Button fx:id="factorialBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="n!" />
+                              <Button fx:id="sinBut" mnemonicParsing="false" onAction="#countSin" prefHeight="68.0" prefWidth="81.0" text="Sin" />
+                              <Button fx:id="cosBut" mnemonicParsing="false" onAction="#countCos" prefHeight="68.0" prefWidth="81.0" text="Cos" />
+                              <Button fx:id="tgBut" mnemonicParsing="false" onAction="#countTg" prefHeight="68.0" prefWidth="81.0" text="Tg" />
+                              <Button fx:id="ctgBut" mnemonicParsing="false" onAction="#countCtg" prefHeight="68.0" prefWidth="81.0" text="Ctg" />
+                              <Button fx:id="factorialBut" mnemonicParsing="false" onAction="#countFact" prefHeight="68.0" prefWidth="81.0" text="n!" />
                            </children>
                         </VBox>
                      </children>
@@ -165,7 +165,7 @@
                               <Font name="Arial" size="18.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" layoutX="64.0" layoutY="78.0" prefHeight="118.0" prefWidth="268.0" text="Nothing more to say, it's just super cool, that's what it is." textAlignment="CENTER" wrapText="true">
+                        <Label alignment="TOP_LEFT" layoutX="64.0" layoutY="78.0" prefHeight="118.0" prefWidth="268.0" text="Input by buttons only! Also remember to clear (C) after a done operation. Have a nice day!" wrapText="true">
                            <font>
                               <Font name="Arial" size="18.0" />
                            </font>
@@ -176,7 +176,7 @@
               </Tab>
           </tabs>
       </TabPane>
-      <TextField fx:id="inputField" alignment="center_right" layoutX="26.0" layoutY="22.0" prefHeight="57.0" prefWidth="239.0" />
+      <TextField fx:id="inputField" alignment="center_right" editable="false" layoutX="26.0" layoutY="22.0" prefHeight="57.0" prefWidth="239.0" />
       <Button fx:id="clearBut" layoutX="337.0" layoutY="20.0" mnemonicParsing="false" onAction="#clearInput" prefHeight="57.0" prefWidth="44.0" text="C" />
       <Button fx:id="calculateBut" layoutX="281.0" layoutY="20.0" mnemonicParsing="false" onAction="#countNumber" prefHeight="57.0" prefWidth="44.0" text="=" />
    </children>
