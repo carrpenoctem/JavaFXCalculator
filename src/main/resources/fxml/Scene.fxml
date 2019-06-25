@@ -90,12 +90,12 @@
                               <Button fx:id="piBut1" mnemonicParsing="false" prefHeight="114.0" prefWidth="78.0" text="π" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
-                        <VBox fx:id="advancedVbox" layoutX="290.0" layoutY="31.0" prefHeight="211.0" prefWidth="81.0">
+                        <VBox fx:id="advancedVbox" layoutX="280.0" layoutY="31.0" prefHeight="211.0" prefWidth="90.0">
                            <children>
-                              <Button fx:id="sqrBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="Square root" />
-                              <Button fx:id="rootBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="x root" />
-                              <Button fx:id="powBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="x^2" />
-                              <Button fx:id="expBut" mnemonicParsing="false" prefHeight="68.0" prefWidth="81.0" text="x^n" />
+                              <Button fx:id="sqrBut" mnemonicParsing="false" prefHeight="60.0" prefWidth="99.0" text="sqrt" wrapText="true" />
+                              <Button fx:id="rootBut" mnemonicParsing="false" prefHeight="56.0" prefWidth="99.0" text="x root" />
+                              <Button fx:id="powBut" mnemonicParsing="false" prefHeight="60.0" prefWidth="113.0" text="x^2" />
+                              <Button fx:id="expBut" mnemonicParsing="false" prefHeight="62.0" prefWidth="127.0" text="x^n" />
                            </children>
                         </VBox>
                      </children>

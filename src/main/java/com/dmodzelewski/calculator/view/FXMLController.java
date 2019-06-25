@@ -24,9 +24,9 @@ public class FXMLController implements Initializable {
     // Button containers for simple,adv and nerd digits
     @FXML
     private GridPane simpleGrid, advancedGrid, nerdGrid;
-    // Button containers for simple,adv and nerd operations
+    // Button containers for simple and adv operations
     @FXML
-    private VBox simpleVbox, advancedVbox, nerdVbox;
+    private VBox simpleVbox, advancedVbox;
     // Our calculate button
     @FXML
     private Button calculateBut;
@@ -39,6 +39,8 @@ public class FXMLController implements Initializable {
     private double firstNumber;
     // second number we use in our equation
     private double secondNumber;
+    // basicly a result
+    private boolean isResult = false;
     // default style of button (for calculate button listener)
     private String defaultStyle;
 
@@ -66,7 +68,6 @@ public class FXMLController implements Initializable {
         List<Node> actionButtonsList_Node = new ArrayList<>();
         actionButtonsList_Node.addAll(simpleVbox.getChildren());
         actionButtonsList_Node.addAll(advancedVbox.getChildren());
-        actionButtonsList_Node.addAll(nerdVbox.getChildren());
 
         actionButtons = new ArrayList<>();
         for (Node b : actionButtonsList_Node) {
@@ -79,11 +80,15 @@ public class FXMLController implements Initializable {
         for (Button b : buttonList) {
             if ("piBut".equals(b.getId()) || "piBut1".equals(b.getId()) || "piBut2".equals(b.getId())) {
                 b.setOnAction((event) -> {
-                    inputField.setText(Math.PI + "");
+                    if (isResult == false) {
+                        inputField.setText(Math.PI + "");
+                    }
                 });
             } else {
                 b.setOnAction((event) -> {
-                    setInputField(b);
+                    if (isResult == false) {
+                        setInputField(b);
+                    }
                 });
             }
         }
@@ -91,12 +96,11 @@ public class FXMLController implements Initializable {
         // setting a method disabling a coresponding action button
         for (Button b : actionButtons) {
             b.setOnAction((event) -> {
-                prepareFirstNumber(b);
-                System.out.println(firstNumber);
-                System.out.println(secondNumber);
+                if (isResult == false) {
+                    prepareFirstNumber(b);
+                }
             });
         }
-
         // a little visual tip when we can calculate value
         inputField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (firstNumber != 0 && !"".equals(inputField.getText())) {
@@ -113,6 +117,7 @@ public class FXMLController implements Initializable {
         inputField.clear();
         firstNumber = 0;
         secondNumber = 0;
+        isResult = false;
         for (Button b : actionButtons) {
             b.setDisable(false);
         }
@@ -121,7 +126,7 @@ public class FXMLController implements Initializable {
     // final method for computing output
     @FXML
     private void countNumber() {
-        if (!inputField.getText().isEmpty()) {
+        if (!inputField.getText().isEmpty() && isResult == false) {
             secondNumber = Double.parseDouble(inputField.getText());
             for (Button b : actionButtons) {
                 if (b.isDisabled()) {
@@ -131,8 +136,8 @@ public class FXMLController implements Initializable {
         }
 
     }
-
     // method for setting value for our inputField
+
     private void setInputField(Button b) {
 
         if (".".equals(b.getText()) && inputField.getText().contains(".")) {
@@ -145,6 +150,7 @@ public class FXMLController implements Initializable {
         } else {
             inputField.setText(inputField.getText().concat(b.getText()));
         }
+
     }
 
     // method preparing our first number
@@ -163,21 +169,21 @@ public class FXMLController implements Initializable {
     // method to determine what mathematical operation should be used
     private void detectOperation(Button b) {
         String buttonId = b.getId();
-        double result = 0;
+        double resultNumber = 0;
 
         switch (buttonId) {
             case "addBut":
-                result = firstNumber + secondNumber;
+                resultNumber = firstNumber + secondNumber;
                 break;
             case "subBut":
-                result = firstNumber - secondNumber;
+                resultNumber = firstNumber - secondNumber;
                 break;
             case "multiBut":
-                result = firstNumber * secondNumber;
+                resultNumber = firstNumber * secondNumber;
                 break;
             case "divBut":
                 if (secondNumber != 0) {
-                    result = firstNumber / secondNumber;
+                    resultNumber = firstNumber / secondNumber;
                 } else {
                     classLogger.log(Level.SEVERE, "divided by 0");
                 }
@@ -187,7 +193,9 @@ public class FXMLController implements Initializable {
             inputField.setText("DIVISION BY ZERO");
             calculateBut.setStyle("-fx-background-color:RED");
         } else {
-            inputField.setText(result + "");
+            inputField.setText(resultNumber + "");
+            calculateBut.setStyle(defaultStyle);
+            isResult = true;
         }
 
     }
